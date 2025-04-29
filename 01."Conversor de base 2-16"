@@ -1,0 +1,32 @@
+#include <iostream>
+using namespace std;
+int main() {
+    long long binario;
+    int decimal,base,resto;
+    cout << "Ingrese el número binario: ";
+    cin >> binario;
+        decimal = 0; 
+        base = 1;
+    // binario a decimal
+    while (binario > 0) {
+        decimal += (binario % 10) * base;
+        binario /= 10;
+        base *= 2;
+    }
+    // decimal a hexadecimal
+    char hex[100];
+    int i = 0;
+    while (decimal > 0) {
+        resto = decimal % 16;
+        hex[i++] = (resto < 10) ? '0' + resto : 'A' + resto - 10;
+        decimal /= 16;
+    }
+    cout << "hexadecimal ";
+    if (i == 0) cout << "0";
+    else {
+        for (int j = i - 1; j >= 0; j--) {
+            cout << hex[j];
+        }
+    }
+    return 0;
+}
