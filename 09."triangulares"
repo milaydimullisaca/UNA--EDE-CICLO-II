@@ -1,0 +1,24 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int n;
+    cout << "Ingrese n: ";
+    cin >> n;
+
+    if (n <= 0)
+    {
+        cout << "Error n debe ser un número entero positivo" << endl;
+        return 1;
+    }
+
+        cout << "Los números triangulares son:";
+        for (int i = 1; i <= n; i++) 
+    {
+        int n = i * (i + 1) / 2;
+        cout << n <<", ";
+    }
+
+    return 0;
+}
