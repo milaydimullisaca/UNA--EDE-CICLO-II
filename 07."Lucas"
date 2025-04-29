@@ -1,0 +1,27 @@
+#include <iostream>
+using namespace std;
+int main() 
+{
+    int a = 2, b = 1, c, i, n;
+
+    cout << "Ingrese n:";
+    cin >> n;
+
+    if (n < 0) 
+    {
+        cout << "Error n debe ser un número entero positivo" << endl;
+        return 1;
+    }
+
+    cout << "Secuencia de Lucas: ";
+    for (i = 0; i <= n; i++) 
+    {   cout << a;
+        if (i < n) cout << ", ";
+        c = a + b;
+        a = b;
+        b = c;
+    }
+    cout << endl;
+
+    return 0;
+}
