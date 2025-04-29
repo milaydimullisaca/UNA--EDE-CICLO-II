@@ -1,0 +1,38 @@
+#include <iostream>
+using namespace std;
+
+int mcd(int a, int b, int& s, int& t) 
+{
+    if (b == 0) 
+    {   s = 1;
+        t = 0;
+        return a;
+    } else {
+        int s1, t1;
+        int MCD = mcd(b, a % b, s1, t1);
+        s = t1;
+        t = s1 - (a / b) * t1;
+        return MCD;
+    }
+}
+int inverMod(int n, int z)
+{   int s, t;
+    int MCD = mcd(n, z, s, t);
+    return (s % z + z) % z;
+}
+
+int main()
+{   int n, z;
+    cout << "Ingrese el valor de n: ";
+    cin >> n;
+    cout << "Ingrese el valor de z: ";
+    cin >> z;
+    while (n <= 0 || z <= 1)
+    {
+    cout << "Error n debe ser mayor que 0 y z debe ser mayor que 1";
+    cin >> n >> z;
+    }
+    int inverso = inverMod(n, z);
+    cout << "El inverso de " << n << " mod " << z << " es " <<inverso << endl;
+    return 0;
+}
