@@ -1,0 +1,45 @@
+#include <iostream>
+using namespace std;
+
+int binarioADecimal(char bin[], int bits) {
+    int decimal = 0;
+    int base = 1;
+    for (int i = bits - 1; i >= 0; i--) {
+        if (bin[i] == '1') decimal += base;
+        base *= 2;
+    }
+    if (bin[0] == '1') decimal -= (1 << bits);
+    return decimal;
+}
+
+void decimalABinario(int decimal, char bin[], int bits) {
+    if (decimal < 0) {
+        decimal += (1 << bits);
+    }
+    for (int i = bits - 1; i >= 0; i--) {
+        bin[i] = (decimal % 2 == 0) ? '0' : '1';
+        decimal /= 2;
+    }
+}
+
+int main() {
+    const int BITS = 8;
+    char bin1[BITS + 1], bin2[BITS + 1], resultado[BITS + 1];
+
+    cout << "Ingrese el primer número binario (" << BITS << " bits): ";
+    cin >> bin1;
+    cout << "Ingrese el segundo número binario (" << BITS << " bits): ";
+    cin >> bin2;
+
+    int suma = binarioADecimal(bin1, BITS) + binarioADecimal(bin2, BITS);
+    decimalABinario(suma, resultado, BITS);
+
+    cout << "Resultado en decimal: " << suma << endl;
+    cout << "Resultado en binario: ";
+    for (int i = 0; i < BITS; i++) {
+        cout << resultado[i];
+    }
+    cout << endl;
+
+    return 0;
+}
