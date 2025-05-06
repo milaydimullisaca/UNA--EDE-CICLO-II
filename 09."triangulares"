@@ -16,8 +16,8 @@ int main()
         cout << "Los números triangulares son:";
         for (int i = 1; i <= n; i++) 
     {
-        int n = i * (i + 1) / 2;
-        cout << n <<", ";
+        int tri = i * (i + 1) / 2;
+        cout << tri <<", ";
     }
 
     return 0;
