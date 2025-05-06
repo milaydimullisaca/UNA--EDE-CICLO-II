@@ -17,7 +17,11 @@ int main()
         for (int i = 1; i <= n; i++) 
     {
         int tri = i * (i + 1) / 2;
-        cout << tri <<", ";
+        cout << tri;
+        if (i < n)
+    {
+            cout << ", ";
+    }
     }
 
     return 0;
