@@ -1,4 +1,4 @@
-//codigo para la formula de permutacion sin repeticion
+//codigo para la formula de permutacion sin repeticion r<=n
 #include <iostream>
 using namespace std;
 int main()
