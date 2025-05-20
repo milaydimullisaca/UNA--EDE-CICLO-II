@@ -1,0 +1,32 @@
+//codigo para la formula de permutacion sin repeticion
+#include <iostream>
+using namespace std;
+int main()
+    {
+    int n, r;
+    long long factN = 1, factNR = 1;
+
+    cout << "Ingrese n y r para calcular P(n, r): ";
+    cin >> n >> r;
+
+    if (r > n || n < 0 || r < 0) {
+    cout << "Error: r debe ser menor o igual que n, y ambos deben ser positivos";
+    return 1;
+    }
+    // Calculamps n!
+    for (int i = 1; i <= n; i++)
+    {
+    factN *= i;
+    }
+    // Calculamos (n - r)!
+    for (int i = 1; i <= (n - r); i++)
+    {
+    factNR *= i;
+    }
+
+    long long resultado = factN / factNR;
+
+    cout << "Permutación P(" << n << ", " << r << ") = " << resultado << endl;
+
+    return 0;
+    }
