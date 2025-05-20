@@ -1,0 +1,33 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int n,k,rep;
+    cout << "Ingrese el número total de elementos (n): ";
+    cin >> n;
+    // Calculamos n!
+    long long factN = 1;
+    for (int i = 1; i <= n; i++) {
+        factN *= i;
+    }
+    cout << "Ingrese el número de tipos que se repiten (k): ";
+    cin >> k;
+    long long denominador = 1;
+    for (int i = 1; i <= k; i++) 
+    {
+    cout << "Ingrese cuántas veces se repite el tipo " << i << ": ";
+    cin >> rep;
+        // Calculamos rep!
+    long long factRep = 1;
+    for (int j = 1; j <= rep; j++)
+    {
+            factRep *= j;
+    }
+
+        denominador *= factRep;
+    }
+    long long resultado = factN / denominador;
+    cout << "Permutaciones con repetición = " << resultado << endl;
+
+    return 0;
+}
