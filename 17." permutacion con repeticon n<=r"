@@ -1,0 +1,32 @@
+// Código para calcular permutación con repetición: P(n, r) r <= n
+#include <iostream>
+using namespace std;
+
+int main() {
+    int n, r;
+    long long resultado = 1;
+
+    cout << "Ingrese n y r para calcular P(n, r) condición r <= n: ";
+    cin >> n >> r;
+
+    if (n < 0 || r < 0) 
+    {
+        cout << "Error: n y r deben ser enteros positivos" << endl;
+        return 1;
+    }
+
+    if (r > n) 
+    {
+        cout << "Error: r debe ser menor o igual que n." << endl;
+        return 1;
+    }
+
+    // Calculamos n^r usando un bucle
+    for (int i = 1; i <= r; i++) {
+        resultado *= n;
+    }
+
+    cout << "Permutación con repetición P(" << n << ", " << r << ") = " << resultado << endl;
+
+    return 0;
+}
